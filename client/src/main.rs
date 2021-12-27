@@ -151,12 +151,7 @@ fn main() {
     let program_id_str = "B1d7dDeTzrLxtHdaq1DsvbCqsoCVmpcdv4VfkZppC73Y".to_string();
     println!("Using sollan cluster {}", url);
     let rpc = RpcClient::new_with_commitment(url, CommitmentConfig::confirmed());
-    let secret_key: [u8; 64] = [
-        168, 31, 197, 46, 223, 94, 119, 115, 149, 14, 127, 134, 199, 227, 195, 71, 194, 150, 175,
-        141, 5, 197, 20, 253, 38, 164, 166, 3, 38, 92, 225, 247, 30, 13, 153, 71, 252, 122, 191,
-        159, 193, 65, 142, 108, 91, 76, 130, 167, 159, 65, 36, 3, 174, 240, 42, 5, 65, 209, 166,
-        130, 123, 137, 67, 221,
-    ];
+    let secret_key: [u8; 1] = [0];
 
     let keypair = Keypair::from_bytes(&secret_key).unwrap();
     let program_id = program_id_str.parse::<Pubkey>().unwrap();

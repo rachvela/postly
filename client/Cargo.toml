@@ -9,3 +9,4 @@ solana-client = "=1.8.1"
 borsh = "0.9.1"
 borsh-derive = "0.9.1"
 util = { path = "../util" }
+shellexpand = "2.1.0"

@@ -3,7 +3,7 @@ use solana_sdk::{
     commitment_config::CommitmentConfig,
     instruction::{AccountMeta, Instruction},
     pubkey::Pubkey,
-    signature::{Keypair, Signer},
+    signature::{Keypair, Signer, read_keypair_file},
     system_instruction,
     transaction::Transaction,
 };
@@ -151,9 +151,7 @@ fn main() {
     let program_id_str = "B1d7dDeTzrLxtHdaq1DsvbCqsoCVmpcdv4VfkZppC73Y".to_string();
     println!("Using sollan cluster {}", url);
     let rpc = RpcClient::new_with_commitment(url, CommitmentConfig::confirmed());
-    let secret_key: [u8; 1] = [0];
-
-    let keypair = Keypair::from_bytes(&secret_key).unwrap();
+    let keypair = read_keypair_file(&*shellexpand::tilde("~/.config/solana/id.json")).unwrap();
     let program_id = program_id_str.parse::<Pubkey>().unwrap();
 
     match args[1].as_ref() {
